@@ -51,7 +51,7 @@ const NEWLINE_AS_STR: &str = "\n";
 pub fn read_encoded_maze_from_file(
     _: usize, // num_rows: passed implicitly in encoded_maze dimensionss
     _: usize, // num_cols: passed implicitly in encoded_maze dimensionss
-    encoded_maze: &mut Vec<Vec<common::MazeRoom>>,
+    encoded_maze: &mut Vec<Vec<common::EncodedMazeRoom>>,
     file_name: &str,
 ) -> () {
     let mut y_count = 1;
@@ -61,7 +61,7 @@ pub fn read_encoded_maze_from_file(
             let line = line.unwrap();
             for c in line.chars() {
                 encoded_maze[x_count - 1][y_count - 1] =
-                    common::MazeRoom::from((x_count, y_count, c));
+                    common::EncodedMazeRoom::from((x_count, y_count, c));
                 x_count += 1;
             }
             y_count += 1;
