@@ -9,7 +9,23 @@ pub enum Direction {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct EncodedMazeRoom {}
+pub struct EncodedMazeRoom {
+    row: usize,
+    col: usize,
+    room: u16,
+}
+
+impl From<(usize, usize, char)> for EncodedMazeRoom {
+    fn from((row, col, borders_as_char): (usize, usize, char)) -> Self {
+        let as_u16 = u16::from_str_radix(&borders_as_char.to_string(), 16)
+            .expect("Could not read maze on disk");
+        Self {
+            row,
+            col,
+            room: as_u16,
+        }
+    }
+}
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct MazeRoom {
@@ -20,6 +36,8 @@ impl MazeRoom {
     pub fn new() -> Self {
         Self {}
     }
+
+    pub fn borders_as_char() {}
 }
 
 pub fn is_in_range(row: usize, col: usize, num_rows: usize, num_cols: usize) -> bool {
