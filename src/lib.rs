@@ -76,15 +76,4 @@ mod tests {
     use super::*;
     #[test]
     fn test_initialize_maze() {}
-
-    #[test]
-    fn test_get_neighbour_happy_path() {}
-
-    #[test]
-    #[should_panic(expected = "Neighbour room is not in the maze.")]
-    fn test_get_neighbour_north_error() {}
-
-    #[test]
-    #[should_panic(expected = "Neighbour room is not in the maze.")]
-    fn test_get_neighbour_south_error() {}
 }

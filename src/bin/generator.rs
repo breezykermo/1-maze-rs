@@ -12,10 +12,6 @@ fn main() {
         println!("./generator <output file> <number of rows> <number of columns>");
         return;
     }
-
-    let file_name: String = args[1];
-    let num_rows: u8 = u8::from(args[2]);
-    let num_cols: u8 = args[3];
 }
 
 /* generator.c */

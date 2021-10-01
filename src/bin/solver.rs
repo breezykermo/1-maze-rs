@@ -1,4 +1,4 @@
-use rust_1_maze::common::MazeRoom;
+use rust_1_maze::common::{EncodedMazeRoom, MazeRoom};
 use rust_1_maze::read_encoded_maze_from_file;
 use std::fs::File;
 
@@ -17,7 +17,7 @@ fn main() {
     let num_rows: usize = args[2].parse().unwrap();
     let num_cols: usize = args[3].parse().unwrap();
 
-    let mut encoded_maze = vec![vec![MazeRoom::new(); num_cols]; num_rows];
+    let mut encoded_maze = vec![vec![EncodedMazeRoom::new(); num_cols]; num_rows];
     read_encoded_maze_from_file(num_rows, num_cols, &mut encoded_maze, file_name);
 
     println!("{:?}", encoded_maze);

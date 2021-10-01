@@ -15,6 +15,16 @@ pub struct EncodedMazeRoom {
     room: u16,
 }
 
+impl EncodedMazeRoom {
+    pub fn new() -> Self {
+        Self {
+            row: 0,
+            col: 0,
+            room: 0,
+        }
+    }
+}
+
 impl From<(usize, usize, char)> for EncodedMazeRoom {
     fn from((row, col, borders_as_char): (usize, usize, char)) -> Self {
         let as_u16 = u16::from_str_radix(&borders_as_char.to_string(), 16)
@@ -37,7 +47,10 @@ impl MazeRoom {
         Self {}
     }
 
-    pub fn borders_as_char() {}
+    pub fn borders_as_char(&self) -> char {
+        // TODO: return border representation as a character
+        "a".chars().take(1).next().unwrap()
+    }
 }
 
 pub fn is_in_range(row: usize, col: usize, num_rows: usize, num_cols: usize) -> bool {
